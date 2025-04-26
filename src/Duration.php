@@ -24,9 +24,6 @@ class Duration
 
     private readonly string $secondsRegex;
 
-    /**
-     * Duration constructor.
-     */
     public function __construct(float|int|string|null $duration = null, public ?int $hoursPerDay = 24)
     {
         $this->reset();
