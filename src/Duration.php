@@ -67,7 +67,7 @@ class Duration
                     $precision = strlen(substr((string) $this->seconds, $delimiterPos + 1));
                 }
 
-                $this->seconds = (float) round(($this->seconds - ($this->minutes * 60)), $precision);
+                $this->seconds = round(($this->seconds - ($this->minutes * 60)), $precision);
             }
 
             if ($this->minutes >= 60) {
