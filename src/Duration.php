@@ -238,7 +238,7 @@ class Duration
      *
      * For example, one hour and 42 minutes would be "1h 42m"
      *
-     * @param  int|float|string  $duration  A string or number, representing a duration
+     * @param  float|int|string|null  $duration  A string or number, representing a duration
      */
     public function humanize(float|int|string|null $duration = null): string
     {
