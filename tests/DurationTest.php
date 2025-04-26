@@ -20,8 +20,8 @@ dataset('seconds sample data', [
     [4, '4 Sec.'],
     [15, '15 SEcONDs'],
     [1, '1.0 s'],
-    [1.5689, '1.5689 S'],
-    [1.00342, '1.00342 S'],
+    [1.5_689, '1.5689 S'],
+    [1.00_342, '1.00342 S'],
 ]);
 
 dataset('minutes sample data', [
@@ -91,13 +91,13 @@ test('Converting Seconds To Formatted String', function () {
     assertEquals('1:09', $this->duration->formatted(69));
     assertEquals('1:42', $this->duration->formatted(102));
     assertEquals('10:47', $this->duration->formatted(647));
-    assertEquals('1:00:00', $this->duration->formatted(3600));
-    assertEquals('1:00:01', $this->duration->formatted(3601));
-    assertEquals('1:00:11', $this->duration->formatted(3611));
-    assertEquals('1:01:00', $this->duration->formatted(3660));
-    assertEquals('1:01:14', $this->duration->formatted(3674));
-    assertEquals('1:04:25', $this->duration->formatted(3865));
-    assertEquals('1:09:09', $this->duration->formatted(4149));
+    assertEquals('1:00:00', $this->duration->formatted(3_600));
+    assertEquals('1:00:01', $this->duration->formatted(3_601));
+    assertEquals('1:00:11', $this->duration->formatted(3_611));
+    assertEquals('1:01:00', $this->duration->formatted(3_660));
+    assertEquals('1:01:14', $this->duration->formatted(3_674));
+    assertEquals('1:04:25', $this->duration->formatted(3_865));
+    assertEquals('1:09:09', $this->duration->formatted(4_149));
 
     // microseconds
     assertEquals('0', $this->duration->formatted(0.0));
@@ -106,15 +106,15 @@ test('Converting Seconds To Formatted String', function () {
     assertEquals('42.672', $this->duration->formatted(42.672));
     assertEquals('1:02.23', $this->duration->formatted(62.23));
     assertEquals('1:09.9', $this->duration->formatted(69.9));
-    assertEquals('1:42.62394', $this->duration->formatted(102.62394));
+    assertEquals('1:42.62394', $this->duration->formatted(102.62_394));
     assertEquals('10:47.5', $this->duration->formatted(647.5));
-    assertEquals('1:00:00.954', $this->duration->formatted(3600.954));
-    assertEquals('1:00:01.5123', $this->duration->formatted(3601.5123));
-    assertEquals('1:00:11.0412368456', $this->duration->formatted(3611.0412368456));
-    assertEquals('1:01:00.56945', $this->duration->formatted(3660.56945));
-    assertEquals('1:01:14.3', $this->duration->formatted(3674.3));
-    assertEquals('1:04:25.0005598', $this->duration->formatted(3865.0005598));
-    assertEquals('1:09:09.123', $this->duration->formatted(4149.123));
+    assertEquals('1:00:00.954', $this->duration->formatted(3_600.954));
+    assertEquals('1:00:01.5123', $this->duration->formatted(3_601.5_123));
+    assertEquals('1:00:11.0412368456', $this->duration->formatted(3_611.0_412_368_456));
+    assertEquals('1:01:00.56945', $this->duration->formatted(3_660.56_945));
+    assertEquals('1:01:14.3', $this->duration->formatted(3_674.3));
+    assertEquals('1:04:25.0005598', $this->duration->formatted(3_865.0_005_598));
+    assertEquals('1:09:09.123', $this->duration->formatted(4_149.123));
 });
 
 test('Converting Seconds To Formatted String Zero Filled', function () {
@@ -126,17 +126,17 @@ test('Converting Seconds To Formatted String Zero Filled', function () {
     assertEquals('0:01:09', $this->duration->formatted(69, true));
     assertEquals('0:01:42', $this->duration->formatted(102, true));
     assertEquals('0:10:47', $this->duration->formatted(647, true));
-    assertEquals('1:00:00', $this->duration->formatted(3600, true));
-    assertEquals('1:00:01', $this->duration->formatted(3601, true));
-    assertEquals('1:00:11', $this->duration->formatted(3611, true));
-    assertEquals('1:01:00', $this->duration->formatted(3660, true));
-    assertEquals('1:01:14', $this->duration->formatted(3674, true));
-    assertEquals('1:04:25', $this->duration->formatted(3865, true));
-    assertEquals('1:09:09', $this->duration->formatted(4149, true));
+    assertEquals('1:00:00', $this->duration->formatted(3_600, true));
+    assertEquals('1:00:01', $this->duration->formatted(3_601, true));
+    assertEquals('1:00:11', $this->duration->formatted(3_611, true));
+    assertEquals('1:01:00', $this->duration->formatted(3_660, true));
+    assertEquals('1:01:14', $this->duration->formatted(3_674, true));
+    assertEquals('1:04:25', $this->duration->formatted(3_865, true));
+    assertEquals('1:09:09', $this->duration->formatted(4_149, true));
 
     // microseconds
     assertEquals('0:00:04.542', $this->duration->formatted(4.542, true));
-    assertEquals('1:09:09.0987', $this->duration->formatted(4149.0987, true));
+    assertEquals('1:09:09.0987', $this->duration->formatted(4_149.0987, true));
 });
 
 test('Converting Formatted Strings To Seconds', function () {
@@ -148,13 +148,13 @@ test('Converting Formatted Strings To Seconds', function () {
     assertEquals(69, $this->duration->toSeconds('1:09'));
     assertEquals(102, $this->duration->toSeconds('1:42'));
     assertEquals(647, $this->duration->toSeconds('10:47'));
-    assertEquals(3600, $this->duration->toSeconds('1:00:00'));
-    assertEquals(3601, $this->duration->toSeconds('1:00:01'));
-    assertEquals(3611, $this->duration->toSeconds('1:00:11'));
-    assertEquals(3660, $this->duration->toSeconds('1:01:00'));
-    assertEquals(3674, $this->duration->toSeconds('1:01:14'));
-    assertEquals(3865, $this->duration->toSeconds('1:04:25'));
-    assertEquals(4149, $this->duration->toSeconds('1:09:09'));
+    assertEquals(3_600, $this->duration->toSeconds('1:00:00'));
+    assertEquals(3_601, $this->duration->toSeconds('1:00:01'));
+    assertEquals(3_611, $this->duration->toSeconds('1:00:11'));
+    assertEquals(3_660, $this->duration->toSeconds('1:01:00'));
+    assertEquals(3_674, $this->duration->toSeconds('1:01:14'));
+    assertEquals(3_865, $this->duration->toSeconds('1:04:25'));
+    assertEquals(4_149, $this->duration->toSeconds('1:09:09'));
 
     // microseconds
     assertEquals(4.6, $this->duration->toSeconds('4.6'));
@@ -164,13 +164,13 @@ test('Converting Formatted Strings To Seconds', function () {
     assertEquals(69.23, $this->duration->toSeconds('1:09.23'));
     assertEquals(102.55, $this->duration->toSeconds('1:42.55'));
     assertEquals(647.999, $this->duration->toSeconds('10:47.999'));
-    assertEquals(3600.9987, $this->duration->toSeconds('1:00:00.9987'));
-    assertEquals(3601.000111, $this->duration->toSeconds('1:00:01.000111'));
-    assertEquals(3611.0999, $this->duration->toSeconds('1:00:11.0999'));
-    assertEquals(3660.500001, $this->duration->toSeconds('1:01:00.500001'));
-    assertEquals(3674.00001, $this->duration->toSeconds('1:01:14.00001'));
-    assertEquals(3865.499999, $this->duration->toSeconds('1:04:25.499999'));
-    assertEquals(4149.499999, $this->duration->toSeconds('1:09:09.499999'));
+    assertEquals(3_600.9_987, $this->duration->toSeconds('1:00:00.9987'));
+    assertEquals(3_601.000_111, $this->duration->toSeconds('1:00:01.000111'));
+    assertEquals(3_611.0_999, $this->duration->toSeconds('1:00:11.0999'));
+    assertEquals(3_660.500_001, $this->duration->toSeconds('1:01:00.500001'));
+    assertEquals(3_674.00_001, $this->duration->toSeconds('1:01:14.00001'));
+    assertEquals(3_865.499_999, $this->duration->toSeconds('1:04:25.499999'));
+    assertEquals(4_149.499_999, $this->duration->toSeconds('1:09:09.499999'));
 
     // precision
     assertEquals(0, $this->duration->toSeconds('0', 0));
@@ -181,13 +181,13 @@ test('Converting Formatted Strings To Seconds', function () {
     assertEquals(69.23, $this->duration->toSeconds('1:09.23'));
     assertEquals(102.55, $this->duration->toSeconds('1:42.55', 2));
     assertEquals(648, $this->duration->toSeconds('10:47.999', 2));
-    assertEquals(3601, $this->duration->toSeconds('1:00:00.9987', 2));
-    assertEquals(3601, $this->duration->toSeconds('1:00:01.000111', 3));
-    assertEquals(3611.0999, $this->duration->toSeconds('1:00:11.0999', 4));
-    assertEquals(3660.5, $this->duration->toSeconds('1:01:00.500001', 2));
-    assertEquals(3674, $this->duration->toSeconds('1:01:14.00001', 2));
-    assertEquals(3865.5, $this->duration->toSeconds('1:04:25.499999', 3));
-    assertEquals(4149.499997, $this->duration->toSeconds('1:09:09.4999971', 6));
+    assertEquals(3_601, $this->duration->toSeconds('1:00:00.9987', 2));
+    assertEquals(3_601, $this->duration->toSeconds('1:00:01.000111', 3));
+    assertEquals(3_611.0_999, $this->duration->toSeconds('1:00:11.0999', 4));
+    assertEquals(3_660.5, $this->duration->toSeconds('1:01:00.500001', 2));
+    assertEquals(3_674, $this->duration->toSeconds('1:01:14.00001', 2));
+    assertEquals(3_865.5, $this->duration->toSeconds('1:04:25.499999', 3));
+    assertEquals(4_149.499_997, $this->duration->toSeconds('1:09:09.4999971', 6));
 });
 
 test('Converting Formatted Strings To Minutes', function () {
@@ -199,13 +199,13 @@ test('Converting Formatted Strings To Minutes', function () {
     assertEquals(69 / 60, $this->duration->toMinutes('1:09'));
     assertEquals(102 / 60, $this->duration->toMinutes('1:42'));
     assertEquals(647 / 60, $this->duration->toMinutes('10:47'));
-    assertEquals(3600 / 60, $this->duration->toMinutes('1:00:00'));
-    assertEquals(3601 / 60, $this->duration->toMinutes('1:00:01'));
-    assertEquals(3611 / 60, $this->duration->toMinutes('1:00:11'));
-    assertEquals(3660 / 60, $this->duration->toMinutes('1:01:00'));
-    assertEquals(3674 / 60, $this->duration->toMinutes('1:01:14'));
-    assertEquals(3865 / 60, $this->duration->toMinutes('1:04:25'));
-    assertEquals(4149 / 60, $this->duration->toMinutes('1:09:09'));
+    assertEquals(3_600 / 60, $this->duration->toMinutes('1:00:00'));
+    assertEquals(3_601 / 60, $this->duration->toMinutes('1:00:01'));
+    assertEquals(3_611 / 60, $this->duration->toMinutes('1:00:11'));
+    assertEquals(3_660 / 60, $this->duration->toMinutes('1:01:00'));
+    assertEquals(3_674 / 60, $this->duration->toMinutes('1:01:14'));
+    assertEquals(3_865 / 60, $this->duration->toMinutes('1:04:25'));
+    assertEquals(4_149 / 60, $this->duration->toMinutes('1:09:09'));
 
     // to integer - BC
     assertEquals(0, $this->duration->toMinutes('0', true));
@@ -268,15 +268,15 @@ test('Convert Seconds To Humanized String', function () {
     assertEquals('1m 2s', $this->duration->humanize(62));
     assertEquals('1m 42s', $this->duration->humanize(102));
     assertEquals('10m 47s', $this->duration->humanize(647));
-    assertEquals('1h', $this->duration->humanize(3600));
-    assertEquals('1h 5s', $this->duration->humanize(3605));
-    assertEquals('1h 1m', $this->duration->humanize(3660));
-    assertEquals('1h 1m 5s', $this->duration->humanize(3665));
-    assertEquals('3d', $this->duration->humanize(259200));
-    assertEquals('2d 11h 30m', $this->duration->humanize(214200));
+    assertEquals('1h', $this->duration->humanize(3_600));
+    assertEquals('1h 5s', $this->duration->humanize(3_605));
+    assertEquals('1h 1m', $this->duration->humanize(3_660));
+    assertEquals('1h 1m 5s', $this->duration->humanize(3_665));
+    assertEquals('3d', $this->duration->humanize(259_200));
+    assertEquals('2d 11h 30m', $this->duration->humanize(214_200));
 
-    assertEquals('4.0596s', $this->duration->humanize(4.0596));
-    assertEquals('2d 11h 30m 0.9542s', $this->duration->humanize(214200.9542));
+    assertEquals('4.0596s', $this->duration->humanize(4.0_596));
+    assertEquals('2d 11h 30m 0.9542s', $this->duration->humanize(214_200.9_542));
 
 });
 
@@ -287,13 +287,13 @@ test('Convert Humanized String To Seconds', function () {
     assertEquals(72, $this->duration->toSeconds('1m 12s'));
     assertEquals(102, $this->duration->toSeconds('1m 42s'));
     assertEquals(647, $this->duration->toSeconds('10m 47s'));
-    assertEquals(3600, $this->duration->toSeconds('1h'));
-    assertEquals(3605, $this->duration->toSeconds('1h 5s'));
-    assertEquals(3660, $this->duration->toSeconds('1h 1m'));
-    assertEquals(3665, $this->duration->toSeconds('1h 1m 5s'));
-    assertEquals(86400, $this->duration->toSeconds('1d'));
-    assertEquals(214200, $this->duration->toSeconds('2d 11h 30m'));
-    assertEquals(214214, $this->duration->toSeconds('2d 11h 30m 14s'));
+    assertEquals(3_600, $this->duration->toSeconds('1h'));
+    assertEquals(3_605, $this->duration->toSeconds('1h 5s'));
+    assertEquals(3_660, $this->duration->toSeconds('1h 1m'));
+    assertEquals(3_665, $this->duration->toSeconds('1h 1m 5s'));
+    assertEquals(86_400, $this->duration->toSeconds('1d'));
+    assertEquals(214_200, $this->duration->toSeconds('2d 11h 30m'));
+    assertEquals(214_214, $this->duration->toSeconds('2d 11h 30m 14s'));
 })
     ->depends(
         'Getting Value From Second Suffixes',
@@ -305,8 +305,8 @@ test('Convert Humanized String To Seconds 7 Hour Day', function () {
     $d = new Duration(null, 7);
 
     assertEquals(0, $d->toSeconds('0d'));
-    assertEquals(25200, $d->toSeconds('1d'));
-    assertEquals(91800, $d->toSeconds('2d 11h 30m'));
+    assertEquals(25_200, $d->toSeconds('1d'));
+    assertEquals(91_800, $d->toSeconds('2d 11h 30m'));
 });
 
 test('Support Decimals', function () {
@@ -325,7 +325,7 @@ test('Convert Humanized With Support Decimals', function () {
 
     assertEquals('1d 4h 32m 5s', (new Duration($t, 6))->humanize(), "Test humanize with: {$t}");
     assertEquals('10:32:05', (new Duration($t, 6))->formatted(), "Test formatted with: {$t}");
-    assertEquals(37925, (new Duration($t, 6))->toSeconds(), "Test toSeconds with: {$t}");
-    assertEquals(37925 / 60, (new Duration($t, 6))->toMinutes(), "Test toMinutes with: {$t}");
+    assertEquals(37_925, (new Duration($t, 6))->toSeconds(), "Test toSeconds with: {$t}");
+    assertEquals(37_925 / 60, (new Duration($t, 6))->toMinutes(), "Test toMinutes with: {$t}");
     assertEquals(632, (new Duration($t, 6))->toMinutes(null, 0), "Test toMinutes with: {$t}");
 });
