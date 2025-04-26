@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-//declare(strict_types=1);
+// declare(strict_types=1);
 
 use Khill\Duration\Duration;
 
 use function PHPUnit\Framework\assertEquals;
 
-beforeEach(fn () => $this->duration = new Duration());
+beforeEach(fn () => $this->duration = new Duration);
 
 dataset('seconds_sample_data', [
     [false, null],
