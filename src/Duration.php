@@ -266,7 +266,7 @@ class Duration
     }
 
     /**
-     * @return array<int, int|float>
+     * @return list<int|float>
      */
     private function numberBreakdown(float $number): array
     {
