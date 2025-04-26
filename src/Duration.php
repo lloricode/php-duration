@@ -14,22 +14,20 @@ class Duration
 
     public int|null|float $seconds;
 
-    public ?int $hoursPerDay;
-
     private string|int|float $output;
 
-    private string $daysRegex;
+    private readonly string $daysRegex;
 
-    private string $hoursRegex;
+    private readonly string $hoursRegex;
 
-    private string $minutesRegex;
+    private readonly string $minutesRegex;
 
-    private string $secondsRegex;
+    private readonly string $secondsRegex;
 
     /**
      * Duration constructor.
      */
-    public function __construct(float|int|string|null $duration = null, int $hoursPerDay = 24)
+    public function __construct(float|int|string|null $duration = null, public ?int $hoursPerDay = 24)
     {
         $this->reset();
 
@@ -37,8 +35,6 @@ class Duration
         $this->hoursRegex = '/([0-9\.]+)\s?(?:h|H)/';
         $this->minutesRegex = '/([0-9]{1,2})\s?(?:m|M)/';
         $this->secondsRegex = '/([0-9]{1,2}(\.\d+)?)\s?(?:s|S)/';
-
-        $this->hoursPerDay = $hoursPerDay;
 
         if (null !== $duration) {
             $this->parse($duration);
