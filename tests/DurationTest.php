@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-// declare(strict_types=1);
-
 use Khill\Duration\Duration;
 
 use function PHPUnit\Framework\assertEquals;
 
 beforeEach(fn () => $this->duration = new Duration);
 
-dataset('seconds_sample_data', [
+dataset('seconds sample data', [
     [false, null],
     [false, ' '],
     [0, '0 s'],
@@ -26,7 +24,7 @@ dataset('seconds_sample_data', [
     [1.00342, '1.00342 S'],
 ]);
 
-dataset('minutes_sample_data', [
+dataset('minutes sample data', [
     [0, '0m'],
     [1, '1 m'],
     [4, '4 min'],
@@ -37,7 +35,7 @@ dataset('minutes_sample_data', [
     [11, '11 MINUTE'],
 ]);
 
-dataset('hours_sample_data', [
+dataset('hours sample data', [
     [0, '0h'],
     [1, '1 h'],
     [1, '1 hr'],
@@ -49,7 +47,7 @@ dataset('hours_sample_data', [
     [36, '36h'],
 ]);
 
-dataset('days_sample_data', [
+dataset('days sample data', [
     [0, '0d'],
     [1, '1 d'],
     [1, '1 D'],
@@ -64,25 +62,25 @@ test('Getting Value From Second Suffixes', function ($expectedSeconds, $secStr) 
     $this->duration->parse($secStr);
     assertEquals($expectedSeconds, $this->duration->seconds);
 })
-    ->with('seconds_sample_data');
+    ->with('seconds sample data');
 
 test('Getting Value From Minute Suffixes', function ($intVal, $minStr) {
     $this->duration->parse($minStr);
     assertEquals($intVal, $this->duration->minutes);
 })
-    ->with('minutes_sample_data');
+    ->with('minutes sample data');
 
 test('Getting Value From Hour Suffixes', function ($intVal, $hrStr) {
     $this->duration->parse($hrStr);
     assertEquals($intVal, $this->duration->hours);
 })
-    ->with('hours_sample_data');
+    ->with('hours sample data');
 
 test('Getting Value From Day Suffixes', function ($intVal, $dayStr) {
     $this->duration->parse($dayStr);
     assertEquals($intVal, $this->duration->days);
 })
-    ->with('days_sample_data');
+    ->with('days sample data');
 
 test('Converting Seconds To Formatted String', function () {
     assertEquals('0', $this->duration->formatted(0));
