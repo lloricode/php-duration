@@ -140,9 +140,9 @@ class Duration
      * For example, one hour and 42 minutes would be "6120"
      *
      * @param  float|int|string|null  $duration  A string or number, representing a duration
-     * @param  bool|int  $precision  Number of decimal digits to round to. If set to false, the number is not rounded.
+     * @param  int|false  $precision  Number of decimal digits to round to. If set to false, the number is not rounded.
      */
-    public function toSeconds(float|int|string|null $duration = null, bool|int $precision = false): float|int|string|null
+    public function toSeconds(float|int|string|null $duration = null, int|false $precision = false): int|float
     {
         if (null !== $duration) {
             $this->parse($duration);
