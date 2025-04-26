@@ -40,7 +40,7 @@ class Duration
 
         $this->hoursPerDay = $hoursPerDay;
 
-        if ($duration !== null) {
+        if (null !== $duration) {
             $this->parse($duration);
         }
     }
@@ -55,7 +55,7 @@ class Duration
     {
         $this->reset();
 
-        if ($duration === null) {
+        if (null === $duration) {
             return false;
         }
 
@@ -90,11 +90,11 @@ class Duration
         if (preg_match('/\:/', $duration)) {
             $parts = explode(':', $duration);
 
-            if (count($parts) === 2) {
+            if (2 === count($parts)) {
                 $this->minutes = (int) $parts[0];
                 $this->seconds = (float) $parts[1];
             } else {
-                if (count($parts) === 3) {
+                if (3 === count($parts)) {
                     $this->hours = (int) $parts[0];
                     $this->minutes = (int) $parts[1];
                     $this->seconds = (float) $parts[2];
@@ -144,12 +144,12 @@ class Duration
      */
     public function toSeconds(float|int|string|null $duration = null, bool|int $precision = false): float|int|string|null
     {
-        if ($duration !== null) {
+        if (null !== $duration) {
             $this->parse($duration);
         }
         $this->output = ($this->days * $this->hoursPerDay * 60 * 60) + ($this->hours * 60 * 60) + ($this->minutes * 60) + $this->seconds;
 
-        return $precision !== false ? round($this->output, $precision) : $this->output;
+        return false !== $precision ? round($this->output, $precision) : $this->output;
     }
 
     /**
@@ -162,19 +162,19 @@ class Duration
      */
     public function toMinutes(float|int|string|null $duration = null, bool|int $precision = false): float|int
     {
-        if ($duration !== null) {
+        if (null !== $duration) {
             $this->parse($duration);
         }
 
         // backward compatibility, true = round to integer
-        if ($precision === true) {
+        if (true === $precision) {
             $precision = 0;
         }
 
         $this->output = ($this->days * $this->hoursPerDay * 60 * 60) + ($this->hours * 60 * 60) + ($this->minutes * 60) + $this->seconds;
         $result = intval($this->output()) / 60;
 
-        return $precision !== false ? round($result, $precision) : $result;
+        return false !== $precision ? round($result, $precision) : $result;
     }
 
     /**
@@ -190,7 +190,7 @@ class Duration
      */
     public function formatted(float|int|string|null $duration = null, bool $zeroFill = false): string
     {
-        if ($duration !== null) {
+        if (null !== $duration) {
             $this->parse($duration);
         }
 
@@ -242,11 +242,11 @@ class Duration
      */
     public function humanize(float|int|string|null $duration = null): string
     {
-        if ($duration !== null) {
+        if (null !== $duration) {
             $this->parse($duration);
         }
 
-        if ($this->seconds > 0 || ($this->seconds === 0.0 && $this->minutes === 0 && $this->hours === 0 && $this->days === 0)) {
+        if ($this->seconds > 0 || (0.0 === $this->seconds && 0 === $this->minutes && 0 === $this->hours && 0 === $this->days)) {
             $this->output .= $this->seconds.'s';
         }
 
